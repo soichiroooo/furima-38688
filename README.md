@@ -54,6 +54,6 @@ has_one :address
 | address_line    | string      | null: false                    |
 | building        | string      |                                |
 | phone_number    | string      | null: false                    |
-| transaction     | references  | null: false, foreign_key: true |
+| purchase        | references  | null: false, foreign_key: true |
 
 belongs_to :purchase
