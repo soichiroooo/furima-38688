@@ -22,11 +22,13 @@ has_many :transactions
 | --------------- | ---------- | ------------------------------ |
 | name            | string     | null: false                    |
 | price           | integer    | null: false                    |
-| selling_user    | reference  | null: false, foreign_key: true |
-| category        | string     | null: false                    |
-| condition       | string     | null: false                    |
-| shipping_charge | string     | null: false                    |
-| shipping_date   | string     | null: false                    |
+| explanation     | text       | null: false                    |
+| category        | integer    | null: false                    |
+| condition       | integer    | null: false                    |
+| shipping_charge | integer    | null: false                    |
+| prefecture      | integer    | null: false                    |
+| shipping_date   | integer    | null: false                    |
+| user            | reference  | null: false, foreign_key: true |
 
 belongs_to :user
 has_one :transaction
@@ -35,7 +37,7 @@ has_one :transaction
 
 | Column          | Type       | Options                        |
 | --------------- | ---------- | ------------------------------ |
-| buying_user     | reference  | null: false, foreign_key: true |
+| user            | reference  | null: false, foreign_key: true |
 | item            | reference  | null: false, foreign_key: true |
 
 belongs_to :item
@@ -47,10 +49,11 @@ has_one :address
 | Column          | Type       | Options                        |
 | --------------- | ---------- | ------------------------------ |
 | postal_code     | string     | null: false                    |
-| prefecture      | string     | null: false                    |
+| prefecture      | integer    | null: false                    |
 | city            | string     | null: false                    |
 | address_line    | string     | null: false                    |
-| building        | string     | null: false                    |
+| building        | string     |                                |
 | phone_number    | string     | null: false                    |
+| transaction     | reference  | null: false, foreign_key: true |
 
 belongs_to :transaction
