@@ -14,31 +14,31 @@
 | date_of_birth      | date     | null: false               |
 
 has_many :items
-has_many :transactions
+has_many :purchases
 
 ## items テーブル
 
-| Column          | Type       | Options                        |
-| --------------- | ---------- | ------------------------------ |
-| name            | string     | null: false                    |
-| price           | integer    | null: false                    |
-| explanation     | text       | null: false                    |
-| category        | integer    | null: false                    |
-| condition       | integer    | null: false                    |
-| shipping_charge | integer    | null: false                    |
-| prefecture      | integer    | null: false                    |
-| shipping_date   | integer    | null: false                    |
-| user            | reference  | null: false, foreign_key: true |
+| Column             | Type        | Options                        |
+| ------------------ | ----------- | ------------------------------ |
+| name               | string      | null: false                    |
+| price              | integer     | null: false                    |
+| explanation        | text        | null: false                    |
+| category_id        | integer     | null: false                    |
+| condition_id       | integer     | null: false                    |
+| shipping_charge_id | integer     | null: false                    |
+| prefecture_id      | integer     | null: false                    |
+| shipping_date_id   | integer     | null: false                    |
+| user               | references  | null: false, foreign_key: true |
 
 belongs_to :user
-has_one :transaction
+has_one :purchase
 
-## transactions テーブル
+## purchases テーブル
 
-| Column          | Type       | Options                        |
-| --------------- | ---------- | ------------------------------ |
-| user            | reference  | null: false, foreign_key: true |
-| item            | reference  | null: false, foreign_key: true |
+| Column          | Type        | Options                        |
+| --------------- | ----------- | ------------------------------ |
+| user            | references  | null: false, foreign_key: true |
+| item            | references  | null: false, foreign_key: true |
 
 belongs_to :item
 belongs_to :user
@@ -46,14 +46,14 @@ has_one :address
 
 ## addresses テーブル
 
-| Column          | Type       | Options                        |
-| --------------- | ---------- | ------------------------------ |
-| postal_code     | string     | null: false                    |
-| prefecture      | integer    | null: false                    |
-| city            | string     | null: false                    |
-| address_line    | string     | null: false                    |
-| building        | string     |                                |
-| phone_number    | string     | null: false                    |
-| transaction     | reference  | null: false, foreign_key: true |
+| Column          | Type        | Options                        |
+| --------------- | ----------- | ------------------------------ |
+| postal_code     | string      | null: false                    |
+| prefecture_id   | integer     | null: false                    |
+| city            | string      | null: false                    |
+| address_line    | string      | null: false                    |
+| building        | string      |                                |
+| phone_number    | string      | null: false                    |
+| transaction     | references  | null: false, foreign_key: true |
 
-belongs_to :transaction
+belongs_to :purchase
