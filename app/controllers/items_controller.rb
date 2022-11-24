@@ -2,6 +2,8 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
 
   def index
+    query = 'SELECT * FROM items ORDER BY id DESC'
+    @items = Item.find_by_sql(query)
   end
 
   def new
