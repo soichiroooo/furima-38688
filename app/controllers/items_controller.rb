@@ -36,8 +36,12 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item.destroy
-    redirect_to action: :index
+    if current_user.id == @item.user_id
+      @item.destroy
+      redirect_to action: :index
+    else
+      redirect_to action: :index
+    end
   end
 
   private
