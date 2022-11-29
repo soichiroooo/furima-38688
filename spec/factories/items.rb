@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :item do
+    Faker::Config.locale = :ja
     name               { Faker::Internet.user_name }
     price              { Faker::Number.between(from: 300, to: 9_999_999) }
     explanation        { Faker::Lorem.sentence }
