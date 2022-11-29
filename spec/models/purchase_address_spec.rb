@@ -59,11 +59,6 @@ RSpec.describe PurchaseAddress, type: :model do
         @purchase_address.valid?
         expect(@purchase_address.errors.full_messages).to include('Phone number is invalid.')
       end
-      it 'purchaseが紐付いていないと保存できないこと' do
-        @purchase_address.purchase_id = ''
-        @purchase_address.valid?
-        expect(@purchase_address.errors.full_messages).to include("Purchase can't be blank")
-      end
       it 'userが紐付いていないと保存できないこと' do
         @purchase_address.user_id = ''
         @purchase_address.valid?
