@@ -42,3 +42,4 @@ class PurchasesController < ApplicationController
     end
   end
 end
+
