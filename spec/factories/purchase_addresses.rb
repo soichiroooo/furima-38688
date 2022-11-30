@@ -6,7 +6,7 @@ FactoryBot.define do
     city          { Faker::Address.state }
     address_line  { Faker::Address.street_address }
     building      { '東京ハイツ' }
-    phone_number  { Faker::PhoneNumber.cell_phone.gsub(/-/,"") }
-    token         { "tok_abcdefghijk00000000000000000" }
+    phone_number  { Faker::PhoneNumber.cell_phone.gsub(/-/, '') }
+    token         { 'tok_abcdefghijk00000000000000000' }
   end
 end
